@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using NeuralNetworks.NeuralNetworking;
+﻿using System.Collections.Generic;
 
-namespace NeuralNetworks.NeuralNetworking
+namespace NeuralNetworks
 {
-    class Neuron
+    public class Neuron
     {
-        public List<Dendrite> Dendrites { get; set; }
-
-        public Pulse OutputPulse { get; set; }
-
-        public double Weight;
+        private double Weight;
 
         public Neuron()
         {
             Dendrites = new List<Dendrite>();
             OutputPulse = new Pulse();
         }
+
+        public List<Dendrite> Dendrites { get; set; }
+
+        public Pulse OutputPulse { get; set; }
 
         public void Fire()
         {
@@ -28,28 +26,31 @@ namespace NeuralNetworks.NeuralNetworking
         public void Compute(double learningRate, double delta)
         {
             Weight += learningRate * delta;
-            foreach (var terminal in Dendrites)
-            {
-                terminal.SynapticWeight = Weight;
-            }
+            foreach (var terminal in Dendrites) terminal.SynapticWeight = Weight;
         }
+
         private double Sum()
         {
             double computeValue = 0.0f;
-            foreach (var terminal in Dendrites)
-            {
-                computeValue += terminal.InputPulse.Value * terminal.SynapticWeight;
-            }
+            foreach (var terminal in Dendrites) computeValue += terminal.InputPulse.Value * terminal.SynapticWeight;
 
             return computeValue;
         }
-     
+
 
         // Activates the function
         private double Activation(double input)
         {
             double threshold = 1;
             return input >= threshold ? 0 : threshold;
+        }
+
+        public void UpdateWeights(double new_weights)
+        {
+            foreach (var dendrite in Dendrites)
+            {
+                dendrite.SynapticWeight = new_weights;
+            }
         }
     }
 }

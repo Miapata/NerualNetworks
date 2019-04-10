@@ -1,17 +1,42 @@
 using System;
+using NeuralNetworks;
+using StandardExamples;
+using NetworkModel = NeuralNetworks.NetworkModel;
+using NeuralData = NeuralNetworks.NeuralData;
+using NeuralLayer = NeuralNetworks.NeuralLayer;
 
-namespace NeuralNetworks
+internal class Program
 {
-    internal class Program
+    private static void Main(string[] args)
     {
-        private static void Main(string[] args)
-        {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
-        }
+        NetworkModel model = new NetworkModel();
+        model.Layers.Add(new NeuralLayer(2, 0.1, "INPUT"));
+        model.Layers.Add(new NeuralLayer(1, 0.1, "OUTPUT"));
+
+        model.Build();
+        Console.WriteLine("--Before Training-----------");
+        model.Print();
+
+        Console.WriteLine();
+
+        NeuralData X = new NeuralData(4);
+        X.Add(0, 0);
+        X.Add(0, 1);
+        X.Add(1, 0);
+        X.Add(1, 1);
+
+        NeuralData Y = new NeuralData(4);
+        Y.Add(0);
+        Y.Add(0);
+        Y.Add(0);
+        Y.Add(1);
+
+        model.Train(X, Y, iterations: 10, learningRate: 0.1);
+        Console.WriteLine();
+
+        Console.WriteLine("--After Training-----------");
+        model.Print();
+        Console.ReadKey();
     }
 }

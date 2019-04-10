@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NeuralNetworks.NeuralNetworking
+﻿namespace NeuralNetworks
 {
-    class Pulse
+    public class Pulse
     {
         public double Value { get; set; }
     }

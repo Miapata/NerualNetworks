@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using NeuralNetworks.NeuralNetworking;
-
-namespace NeuralNetworks.NeuralNetworking
+﻿namespace NeuralNetworks
 {
-    class Dendrite
+    public class Dendrite
     {
         public Pulse InputPulse { get; set; }
         public double SynapticWeight { get; set; }

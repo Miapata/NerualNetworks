@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5ADA868B-0874-4C1C-8911-FD51A15D4644}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>NerualNetworks</RootNamespace>
-    <AssemblyName>NerualNetworks</AssemblyName>
+    <RootNamespace>NeuralNetworks</RootNamespace>
+    <AssemblyName>NeuralNetworks</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,23 +34,31 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleTableExt\AppConstants.cs" />
+    <Compile Include="ConsoleTableExt\ConsoleTableBuilder.cs" />
+    <Compile Include="ConsoleTableExt\ConsoleTableBuilderExtensions.cs" />
+    <Compile Include="ConsoleTableExt\ConsoleTableBuilderFormat.cs" />
+    <Compile Include="ConsoleTableExt\ConsoleTableBuilderOption.cs" />
+    <Compile Include="NeuralNetworking\NeuralData.cs" />
     <Compile Include="NeuralNetworking\Dendrite.cs" />
+    <Compile Include="NeuralNetworking\NetworkModel.cs" />
     <Compile Include="NeuralNetworking\NeuralLayer.cs" />
     <Compile Include="NeuralNetworking\Neuron.cs" />
     <Compile Include="NeuralNetworking\Pulse.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConsoleTableExt\ConsoleTableExt.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
