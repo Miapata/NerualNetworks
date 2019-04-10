@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NeuralNetworks.NeuralNetworking;
 
-namespace NerualNetworks.NeuralNetworking
+namespace NeuralNetworks.NeuralNetworking
 {
     class Neuron
     {
@@ -25,7 +25,14 @@ namespace NerualNetworks.NeuralNetworking
         }
 
 
-
+        public void Compute(double learningRate, double delta)
+        {
+            Weight += learningRate * delta;
+            foreach (var terminal in Dendrites)
+            {
+                terminal.SynapticWeight = Weight;
+            }
+        }
         private double Sum()
         {
             double computeValue = 0.0f;
@@ -36,6 +43,7 @@ namespace NerualNetworks.NeuralNetworking
 
             return computeValue;
         }
+     
 
         // Activates the function
         private double Activation(double input)

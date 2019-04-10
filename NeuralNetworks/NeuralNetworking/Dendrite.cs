@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using NerualNetworks.NeuralNetworking;
+using NeuralNetworks.NeuralNetworking;
 
 namespace NeuralNetworks.NeuralNetworking
 {

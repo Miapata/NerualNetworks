@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NerualNetworks.NeuralNetworking
+namespace NeuralNetworks.NeuralNetworking
 {
-    class NeuralLayer
+    class Pulse
     {
+        public double Value { get; set; }
     }
 }
